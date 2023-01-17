@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Calinga Demo</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    
+  </head>
+  <body style="background-color:#264653">
+    <div style="margin:100px;">
+      <div style="padding:40px; margin-top: 10%">
+        <h1 class="text-center" style="color:#f4f1de; font-size: 8rem;">
+          <%= first_word %>, <%= second_word %>!
+        </h1>
+        <div class="text-center" style="margin-top: 50;">
+          <span>
+            <a 
+            class="btn btn-lg" 
+            style="color: black; background-color: #EDD9A3;" 
+            href="http://localhost:3000/?lang=en" 
+            role="button">
+            English
+            </a>
+          </span>
+          <span style="margin-left: 40px;">
+            <a 
+            class="btn btn-lg" 
+            style="color: black; background-color: #e9c46a;" 
+            href="http://localhost:3000/?lang=de" 
+            role="button">
+            Deutsch
+            </a>
+          </span>
+          <span style="margin-left: 40px;">
+            <a 
+            class="btn btn-lg" 
+            style="color: black; background-color: #f4a261;" 
+            href="http://localhost:3000/?lang=es" 
+            role="button">
+            Español
+            </a>
+          </span>
+          <span style="margin-left: 40px;">
+            <a 
+            class="btn btn-lg" 
+            style="color: black; background-color: #e76f51;" 
+            href="http://localhost:3000/?lang=ja" 
+            role="button">
+            日本語
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,49 +1,44 @@
 const i18next = require('i18next')
 const express = require('express')
-
-const { CalingaBackend, CalingaBackendOptions } = require('i18next-calinga-backend') ;
-
-// https://manage.calinga.io/translations/SdkSample/Default%20Team/Landings%20Page/de
+const { CalingaBackend } = require('i18next-calinga-backend') ;
 
 const backendOptions = {
     organization: 'SdkSample',
     team: 'Default Team',
-    project: "Landings Page",
-    resources: {
-        'en': {
-            'default': 'en'
-        },
-        'de': {
-            'default': 'de'
-        }
-    },
+    project: "i18next-example",
     devMode: false
 
 };
 
-i18next
-  .use(CalingaBackend)
-  .init({
-    backend: backendOptions,
-    
-    supportedLngs: ['en', 'de']
-  });
-
-
 const app = express()
+app.set("view engine", "ejs")
+
 const port = 3000
+i18next.use(CalingaBackend)
+i18next.init({
+    backend: backendOptions,
+    debug: false,
+    lng: 'en',
+    fallbackLng:['en']
 
-app.get('/', (req, res) => res.json( { Hello: 'World!' } ));
-
-app.get('/translation/:key', (req, res) => {
-  i18next.changeLanguage(req.query.lang, (error, t) => {
-    if(error){
-      res.json('error changing language', error)
-    }
-    else{
-      res.json(t(req.params.key))
-    }
-})});
+  }, (error,t) => {
+    app.get('/', (req, res) => {
+      if(error){
+        res.render('error', {error_message: error})
+      }
+      i18next.changeLanguage(req.query.lang, (error, t) => {
+        
+        if(error){
+          res.render('error', {error_message: error})
+        }
+        else{
+          var hello = t('key.for.hello')
+          var world = t('key.for.world')
+          res.render('index', {first_word: hello, second_word: world})
+        }
+      })
+    });
+  });
 
 app.listen(
   port, 
