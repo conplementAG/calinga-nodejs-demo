@@ -1,12 +1,14 @@
 const i18next = require('i18next')
 const express = require('express')
-const { CalingaBackend } = require('i18next-calinga-backend') ;
+const { CalingaBackend } = require('i18next-calinga-backend')
+const config = require('./config.json')
 
 const backendOptions = {
     organization: 'SdkSample',
     team: 'Default Team',
     project: "i18next-example",
-    devMode: false
+    devMode: false,
+    apiToken: config['api-token']
 
 };
 
