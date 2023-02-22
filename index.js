@@ -21,7 +21,9 @@ i18next.init({
     backend: backendOptions,
     debug: false,
     lng: 'en',
-    fallbackLng:['en']
+    fallbackLng:['en'],
+    ns:['i18next-example', 'Namespace-Test'],
+    defalultNs: 'i18next-example'
 
   }, (error,t) => {
     app.get('/', (req, res) => {
