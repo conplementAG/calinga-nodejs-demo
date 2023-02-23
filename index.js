@@ -36,8 +36,8 @@ i18next.init({
           res.render('error', {error_message: error})
         }
         else{
-          var hello = t('key.for.hello')
-          var world = t('key.for.world')
+          var hello = t('headline.key')
+          var world = t('headline.key', {ns: 'Namespace-Test'})
           res.render('index', {first_word: hello, second_word: world})
         }
       })
