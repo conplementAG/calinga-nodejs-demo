@@ -6,7 +6,7 @@ const config = require('./config.json')
 const backendOptions = {
     organization: 'SdkSample',
     team: 'Default Team',
-    project: "i18next-example",
+    project: "Greetings",
     devMode: false,
     apiToken: config['api-token']
 
@@ -22,9 +22,7 @@ i18next.init({
     debug: false,
     lng: 'en',
     fallbackLng:['en'],
-    ns:['i18next-example', 'Namespace-Test'],
-    defalultNs: 'i18next-example'
-
+    ns:['Greetings', 'Audiences']
   }, (error,t) => {
     app.get('/', (req, res) => {
       if(error){
@@ -37,7 +35,7 @@ i18next.init({
         }
         else{
           var hello = t('headline.key')
-          var world = t('headline.key', {ns: 'Namespace-Test'})
+          var world = t('headline.key', {ns: 'Audiences'})
           res.render('index', {first_word: hello, second_word: world})
         }
       })
